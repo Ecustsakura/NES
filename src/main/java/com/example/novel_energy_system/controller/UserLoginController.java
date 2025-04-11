@@ -14,6 +14,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * @eo.api-type http
+ * @eo.groupName 328
+ * @eo.path
+ */
+
+
+
+
 @RestController
 @RequestMapping("/user")
 public class UserLoginController {
