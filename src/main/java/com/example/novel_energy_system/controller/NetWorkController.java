@@ -14,7 +14,7 @@ import java.lang.reflect.Method;
 
 /**
  * @eo.api-type http
- * @eo.groupName 328
+ * @eo.groupName NetWork
  * @eo.path
  */
 @RestController

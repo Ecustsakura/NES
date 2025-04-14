@@ -6,6 +6,5 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface PowerFlowMapper extends BaseMapper<PowerFlow> {
-
-
+    int insertPowerFlow(PowerFlow powerFlow);
 }

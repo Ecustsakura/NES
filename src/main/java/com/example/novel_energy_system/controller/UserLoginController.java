@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * @eo.api-type http
- * @eo.groupName 328
+ * @eo.groupName User
  * @eo.path
  */
 
