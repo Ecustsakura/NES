@@ -51,7 +51,7 @@ public class DrawPictureController {
 
         int result = pictureService.addPicture(picture);
         if (result > 0) {
-            return Result.success("Picture added successfully");
+            return Result.success(picture.toString());
         } else {
             return Result.error(CodeMsg.SERVER_EXCEPTION, "Failed to add picture");
         }
@@ -60,29 +60,37 @@ public class DrawPictureController {
     /**
      * 更新图片接口。
      * 根据传入的图片信息，调用服务层方法更新图片。
+     * @param id
      * @param pictureDto 图片实体对象，包含需要更新的图片信息，如图片名称、描述等。
      * @return 返回更新结果，成功时返回包含成功信息的Result对象，失败时返回包含错误信息的Result对象。
      */
 
     @UserLoginToken
-    @PutMapping("/update")
-    public Result<String> updatePicture(@RequestBody PictureDto pictureDto) {
-        if (pictureDto == null || pictureDto.getId() == null) {
+    @PutMapping("/update/{id}")
+    public Result<String> updatePicture(@PathVariable("id") Integer id, @RequestBody PictureDto pictureDto) {
+        // 检查路径参数 id 是否为空
+        if (id == null) {
             return Result.error(CodeMsg.PARAMETER_ISNULL, "Picture ID must be provided");
         }
+
+        // 检查 pictureName 是否为空
         if (pictureDto.getPictureName() == null || pictureDto.getPictureName().trim().isEmpty()) {
             return Result.error(CodeMsg.PARAMETER_ISNULL, "Picture name must be provided");
         }
+
+        // 检查 description 是否为空
         if (pictureDto.getDescription() == null || pictureDto.getDescription().trim().isEmpty()) {
             return Result.error(CodeMsg.PARAMETER_ISNULL, "Description must be provided");
         }
 
+        // 创建 Picture 实体并设置属性
         Picture picture = new Picture();
-        picture.setId(pictureDto.getId());
+        picture.setId(id); // 使用路径参数中的 id
         picture.setName(pictureDto.getPictureName());
         picture.setDescription(pictureDto.getDescription());
         picture.setUpdateTime(LocalDateTime.now());
 
+        // 调用 Service 方法更新图片信息
         int result = pictureService.updatePicture(picture);
         if (result > 0) {
             return Result.success("Picture updated successfully");
@@ -121,6 +129,24 @@ public class DrawPictureController {
     @GetMapping("/list")
     public Result<PageInfo<Picture>> getPictureList(@RequestParam int pageNum, @RequestParam int pageSize) {
         PageInfo<Picture> pageInfo = pictureService.selectPicture(pageNum, pageSize);
+        return Result.success(pageInfo);
+    }
+
+    /**
+     * 模糊查询图片列表接口。
+     * 根据传入的用户模糊索引和分页参数，调用服务层方法查询图片列表。
+     * @param content 用户输入查询内容
+     * @param pageNum 当前页码。
+     * @param pageSize 每页显示的记录数。
+     * @return 返回查询结果，包含分页信息和图片列表数据的Result对象。
+     */
+    @UserLoginToken
+    @GetMapping("/search")
+    public Result<PageInfo<Picture>> searchPictures(
+            @RequestParam String content,
+            @RequestParam(defaultValue = "1") int pageNum,
+            @RequestParam(defaultValue = "10") int pageSize) {
+        PageInfo<Picture> pageInfo = pictureService.selectPictureByContent(content, pageNum, pageSize);
         return Result.success(pageInfo);
     }
 }

@@ -10,4 +10,5 @@ public interface PictureService {
     int updatePicture(Picture picture);
     int deletePicture(int id);
     PageInfo<Picture> selectPicture(int pageNum, int pageSize);
+    PageInfo<Picture> selectPictureByContent(String content,int pageNum, int pageSize);
 }

@@ -11,7 +11,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class PictureDto implements Serializable {
 
-    private Integer id;
+
     private String pictureName;
     private String description;
     private static final long serialVersionUID = 1L;

@@ -38,4 +38,11 @@ public class PictureServiceImpl implements PictureService {
         List<Picture> pictureList = drawMapper.selectPicture();
         return new PageInfo<>(pictureList);
     }
+
+    @Override
+    public PageInfo<Picture> selectPictureByContent(String content,int pageNum, int pageSize){
+        PageHelper.startPage(pageNum, pageSize);
+        List<Picture> pictureList = drawMapper.selectPictureByContent(content);
+        return new PageInfo<>(pictureList);
+    }
 }

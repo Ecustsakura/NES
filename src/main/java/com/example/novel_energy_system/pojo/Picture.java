@@ -34,4 +34,15 @@ public class Picture implements Serializable {
     private String description;
 
     private static final long serialVersionUID = 1L;
+
+    @Override
+    public String toString() {
+        return "Picture{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }
