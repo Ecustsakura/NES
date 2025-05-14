@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.novel_energy_system.mapper.ALKMapper">
+
+    <!-- 插入 alk 记录 -->
+    <insert id="insertBatch" parameterType="java.util.List">
+        INSERT INTO alk (node, num, time, current, p, temperature, voltage, m)
+        VALUES
+        <foreach collection="list" item="alk" separator=",">
+            (#{alk.node}, #{alk.num}, #{alk.time}, #{alk.current}, #{alk.p}, #{alk.temperature}, #{alk.voltage}, #{alk.m})
+        </foreach>
+    </insert>
+
+</mapper>

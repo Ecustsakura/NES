@@ -4,4 +4,5 @@ import com.example.novel_energy_system.pojo.PowerFlow;
 
 public interface NetWorkService {
     String pf_calculate();
+    String network_alk_calculate();
 }

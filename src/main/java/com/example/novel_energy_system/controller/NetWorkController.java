@@ -42,5 +42,15 @@ public class NetWorkController {
 
     }
 
+    /**
+     * 计算电解槽各参数
+     * @return result
+     */
+
+    @PutMapping("/alk")
+    public Result alk(){
+        String result = netWorkService.network_alk_calculate();
+        return Result.success(result);
+    }
 
 }
