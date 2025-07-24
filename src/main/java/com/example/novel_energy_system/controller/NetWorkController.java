@@ -52,5 +52,4 @@ public class NetWorkController {
         String result = netWorkService.network_alk_calculate();
         return Result.success(result);
     }
-
 }

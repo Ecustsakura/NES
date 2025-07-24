@@ -21,6 +21,15 @@
         WHERE id = #{id}
     </update>
 
+    <update id="updatePictureByJson" parameterType="com.example.novel_energy_system.pojo.Picture">
+        UPDATE picture
+        <set>
+            <if test="jsonData != null">jsondata = #{jsonData}</if>
+
+        </set>
+        WHERE id = #{id}
+    </update>
+
     <select id="selectPicture" resultType="com.example.novel_energy_system.pojo.Picture">
         SELECT * FROM picture
     </select>
@@ -28,6 +37,10 @@
     <select id="selectPictureByContent" parameterType="string" resultType="com.example.novel_energy_system.pojo.Picture">
         SELECT * FROM picture
         WHERE description LIKE CONCAT('%',#{content},'%')
+    </select>
+
+    <select id="selectJsonDataById" resultType="java.lang.String">
+        SELECT jsondata FROM picture WHERE id = #{id}
     </select>
 
 </mapper>

@@ -38,4 +38,60 @@ public class PowerFlow implements Serializable {
     private float time;
 
     private static final long serialVersionUID = 1L;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getNode() {
+        return node;
+    }
+
+    public void setNode(int node) {
+        this.node = node;
+    }
+
+    public float getAngle() {
+        return angle;
+    }
+
+    public void setAngle(float angle) {
+        this.angle = angle;
+    }
+
+    public float getVoltage() {
+        return voltage;
+    }
+
+    public void setVoltage(float voltage) {
+        this.voltage = voltage;
+    }
+
+    public float getP() {
+        return p;
+    }
+
+    public void setP(float p) {
+        this.p = p;
+    }
+
+    public float getQ() {
+        return q;
+    }
+
+    public void setQ(float q) {
+        this.q = q;
+    }
+
+    public float getTime() {
+        return time;
+    }
+
+    public void setTime(float time) {
+        this.time = time;
+    }
 }

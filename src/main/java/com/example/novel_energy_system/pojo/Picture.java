@@ -33,7 +33,58 @@ public class Picture implements Serializable {
     @TableField(value = "description")
     private String description;
 
+    @TableField(value = "jsondata")
+    private String jsonData;
+
     private static final long serialVersionUID = 1L;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public LocalDateTime getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(LocalDateTime createTime) {
+        this.createTime = createTime;
+    }
+
+    public LocalDateTime getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(LocalDateTime updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getJsonData() {
+        return jsonData;
+    }
+
+    public void setJsonData(String jsonData) {
+        this.jsonData = jsonData;
+    }
 
     @Override
     public String toString() {
@@ -43,6 +94,7 @@ public class Picture implements Serializable {
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
                 ", description='" + description + '\'' +
+                ", jsonData='" + jsonData + '\'' +
                 '}';
     }
 }
