@@ -59,7 +59,7 @@ public class SchemaServiceImpl implements SchemaService {
 
         Map<String, Object> z = new HashMap<>();
         z.put("type", "integer");
-        z.put("unit", "");
+        z.put("unit", "2");
 
         Map<String, Object> F = new HashMap<>();
         F.put("type", "string");
@@ -95,11 +95,11 @@ public class SchemaServiceImpl implements SchemaService {
 
         Map<String, Object> N = new HashMap<>();
         N.put("type", "string");
-        N.put("unit", "");
+        N.put("unit", "1");
 
         Map<String, Object> f1 = new HashMap<>();
         f1.put("type", "string");
-        f1.put("unit", "");
+        f1.put("unit", "1");
 
         Map<String, Object> f2 = new HashMap<>();
         f2.put("type", "string");
@@ -184,7 +184,7 @@ public class SchemaServiceImpl implements SchemaService {
 
         Map<String, Object> N_cell = new HashMap<>();
         N_cell.put("type", "string");
-        N_cell.put("unit", "");
+        N_cell.put("unit", "60");
 
         Map<String, Object> W = new HashMap<>();
         W.put("type", "string");
@@ -192,7 +192,7 @@ public class SchemaServiceImpl implements SchemaService {
 
         Map<String, Object> kexi = new HashMap<>();
         kexi.put("type", "string");
-        kexi.put("unit", "");
+        kexi.put("unit", "0.75");
 
         Map<String, Object> Vm = new HashMap<>();
         Vm.put("type", "string");
@@ -270,7 +270,7 @@ public class SchemaServiceImpl implements SchemaService {
 
         Map<String, Object> o = new HashMap<>();
         o.put("type", "string");
-        o.put("unit", "");
+        o.put("unit", "1");
 
         Map<String, Object> T_std = new HashMap<>();
         T_std.put("type", "string");
@@ -302,7 +302,7 @@ public class SchemaServiceImpl implements SchemaService {
 
         Map<String, Object> N_cell = new HashMap<>();
         N_cell.put("type", "string");
-        N_cell.put("unit", "");
+        N_cell.put("unit", "1");
 
         Map<String, Object> CrSOC = new HashMap<>();
         CrSOC.put("type", "string");
@@ -345,11 +345,11 @@ public class SchemaServiceImpl implements SchemaService {
 
         Map<String, Object> Ct = new HashMap<>();
         Ct.put("type", "string");
-        Ct.put("unit", "");
+        Ct.put("unit", "1");
 
         Map<String, Object> wake = new HashMap<>();
         wake.put("type", "string");
-        wake.put("unit", "");
+        wake.put("unit", "1");
 
         Map<String, Object> cut_in = new HashMap<>();
         cut_in.put("type", "string");
@@ -369,7 +369,7 @@ public class SchemaServiceImpl implements SchemaService {
 
         Map<String, Object> num = new HashMap<>();
         num.put("type", "string");
-        num.put("unit", "");
+        num.put("unit", "1");
 
         Map<String, Object> location = new HashMap<>();
         location.put("type", "string");
@@ -396,23 +396,23 @@ public class SchemaServiceImpl implements SchemaService {
         // 创建 PV 的子字段
         Map<String, Object> a = new HashMap<>();
         a.put("type", "string");
-        a.put("unit", "");
+        a.put("unit", "1");
 
         Map<String, Object> b = new HashMap<>();
         b.put("type", "string");
-        b.put("unit", "");
+        b.put("unit", "1");
 
         Map<String, Object> g = new HashMap<>();
         g.put("type", "string");
-        g.put("unit", "");
+        g.put("unit", "1");
 
         Map<String, Object> N_cell = new HashMap<>();
         N_cell.put("type", "string");
-        N_cell.put("unit", "");
+        N_cell.put("unit", "1");
 
         Map<String, Object> N_series = new HashMap<>();
         N_series.put("type", "string");
-        N_series.put("unit", "");
+        N_series.put("unit", "1");
 
         Map<String, Object> I_sc = new HashMap<>();
         I_sc.put("type", "string");
@@ -428,7 +428,7 @@ public class SchemaServiceImpl implements SchemaService {
 
         Map<String, Object> U_m = new HashMap<>();
         U_m.put("type", "string");
-        U_m.put("unit", "V");
+        U_m.put("unit", "1");
 
 
         // 创建 PV 字段
@@ -460,11 +460,11 @@ public class SchemaServiceImpl implements SchemaService {
 
         Map<String, Object> tz = new HashMap<>();
         tz.put("type", "string");
-        tz.put("unit", "");
+        tz.put("unit", "1");
 
         Map<String, Object> N_helio = new HashMap<>();
         N_helio.put("type", "string");
-        N_helio.put("unit", "");
+        N_helio.put("unit", "1");
 
         Map<String, Object> d_helio = new HashMap<>();
         d_helio.put("type", "string");
@@ -476,7 +476,7 @@ public class SchemaServiceImpl implements SchemaService {
 
         Map<String, Object> h_clean = new HashMap<>();
         h_clean.put("type", "string");
-        h_clean.put("unit", "");
+        h_clean.put("unit", "1");
 
         Map<String, Object> h_reflect = new HashMap<>();
         h_reflect.put("type", "string");
@@ -583,7 +583,7 @@ public class SchemaServiceImpl implements SchemaService {
         // 创建 Lava_heat_storage 的子字段
         Map<String, Object> kexi = new HashMap<>();
         kexi.put("type", "string");
-        kexi.put("unit", "");
+        kexi.put("unit", "1");
 
         Map<String, Object> q_loss = new HashMap<>();
         q_loss.put("type", "string");
@@ -600,23 +600,23 @@ public class SchemaServiceImpl implements SchemaService {
         // 创建 Steam_turbine 的子字段
         Map<String, Object> T_CH = new HashMap<>();
         T_CH.put("type", "string");
-        T_CH.put("unit", "");
+        T_CH.put("unit", "1");
 
         Map<String, Object> T_RH = new HashMap<>();
         T_RH.put("type", "string");
-        T_RH.put("unit", "");
+        T_RH.put("unit", "1");
 
         Map<String, Object> T_CO = new HashMap<>();
         T_CO.put("type", "string");
-        T_CO.put("unit", "");
+        T_CO.put("unit", "1");
 
         Map<String, Object> F_HP = new HashMap<>();
         F_HP.put("type", "string");
-        F_HP.put("unit", "");
+        F_HP.put("unit", "1");
 
         Map<String, Object> F_IP = new HashMap<>();
         F_IP.put("type", "string");
-        F_IP.put("unit", "");
+        F_IP.put("unit", "1");
 
         Map<String, Object> F_LP = new HashMap<>();
         F_LP.put("type", "string");
@@ -697,7 +697,7 @@ public class SchemaServiceImpl implements SchemaService {
 
         Map<String, Object> a = new HashMap<>();
         a.put("type", "string");
-        a.put("unit", "");
+        a.put("unit", "1");
 
         // 创建 h2_gas 字段
         Map<String, Object> h2_gas = new HashMap<>();
