@@ -42,34 +42,39 @@ public class NetWorkServiceImpl implements NetWorkService {
                 logger.error("Flask 服务器返回错误: {}", response.getStatusCode());
                 return "Flask 服务器返回错误: " + response.getStatusCode();
             }
-
-            // 解析 Flask 返回的数据
-            Map<String, Object> body = response.getBody();
-            if (body == null) {
-                logger.error("Flask 返回的数据为空");
-                return "Flask 返回的数据为空";
-            }
-
-            Map<String, Map<String, Double>> voltageResults = (Map<String, Map<String, Double>>) body.get("voltage_results");
-            Map<String, Map<String, Double>> angleResults = (Map<String, Map<String, Double>>) body.get("angle_results");
-            Map<String, Map<String, Double>> pResults = (Map<String, Map<String, Double>>) body.get("p_result");
-            Map<String, Map<String, Double>> qResults = (Map<String, Map<String, Double>>) body.get("q_result");
-
-            // 验证数据是否为空
-            if (voltageResults == null || angleResults == null || pResults == null || qResults == null) {
-                logger.error("Flask 返回的数据中缺少必要的字段");
-                return "Flask 返回的数据中缺少必要的字段";
-            }
-
-            // 处理数据并存入数据库
-            savePowerFlowData(voltageResults, angleResults, pResults, qResults);
-
-            return "潮流计算结果已存入数据库";
-
+            return response.getBody().toString();
         } catch (Exception e) {
             logger.error("请求 Flask 服务出错: {}", e.getMessage(), e);
             return "请求 Flask 服务出错: " + e.getMessage();
         }
+
+//            // 解析 Flask 返回的数据
+//            Map<String, Object> body = response.getBody();
+//            if (body == null) {
+//                logger.error("Flask 返回的数据为空");
+//                return "Flask 返回的数据为空";
+//            }
+//
+//            Map<String, Map<String, Double>> voltageResults = (Map<String, Map<String, Double>>) body.get("voltage_results");
+//            Map<String, Map<String, Double>> angleResults = (Map<String, Map<String, Double>>) body.get("angle_results");
+//            Map<String, Map<String, Double>> pResults = (Map<String, Map<String, Double>>) body.get("p_result");
+//            Map<String, Map<String, Double>> qResults = (Map<String, Map<String, Double>>) body.get("q_result");
+//
+//            // 验证数据是否为空
+//            if (voltageResults == null || angleResults == null || pResults == null || qResults == null) {
+//                logger.error("Flask 返回的数据中缺少必要的字段");
+//                return "Flask 返回的数据中缺少必要的字段";
+//            }
+//
+//            // 处理数据并存入数据库
+//            savePowerFlowData(voltageResults, angleResults, pResults, qResults);
+//
+//            return "潮流计算结果已存入数据库";
+//
+//        } catch (Exception e) {
+//            logger.error("请求 Flask 服务出错: {}", e.getMessage(), e);
+//            return "请求 Flask 服务出错: " + e.getMessage();
+//        }
     }
 
     @Override

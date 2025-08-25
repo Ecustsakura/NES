@@ -6,7 +6,9 @@ import com.example.novel_energy_system.common.Result;
 import com.example.novel_energy_system.pojo.Picture;
 import com.example.novel_energy_system.pojo.dto.PictureDto;
 import com.example.novel_energy_system.service.PictureService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.github.pagehelper.PageInfo;
+import io.lettuce.core.dynamic.annotation.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -149,4 +151,54 @@ public class DrawPictureController {
         PageInfo<Picture> pageInfo = pictureService.selectPictureByContent(content, pageNum, pageSize);
         return Result.success(pageInfo);
     }
+
+    /**
+     * 更新图片json数据的接口。
+     * 根据传入的图片信息，调用服务层方法更新图片。
+     * @param id
+     * @param json 包含图层信息的json数据
+     * @return 返回更新结果，成功时返回包含成功信息的Result对象，失败时返回包含错误信息的Result对象。
+     */
+
+    @UserLoginToken
+    @PutMapping("/updateByjson/{id}")
+    public Result<String> updatePictureByjson(@PathVariable("id") Integer id,@RequestBody String json) {
+        if (id == null) {
+            return Result.error(CodeMsg.PARAMETER_ISNULL, "Picture ID must be provided");
+        }
+        if (json == null) {
+            return Result.error(CodeMsg.PARAMETER_ISNULL, "Picture json must be provided");
+        }
+        Picture picture = new Picture();
+        picture.setId(id); // 使用路径参数中的 id
+        picture.setJsonData(json);
+        int result = pictureService.updatePictureByjson(picture);
+        if (result > 0) {
+            return Result.success("Picture updated successfully");
+        } else {
+            return Result.error(CodeMsg.SERVER_EXCEPTION, "Failed to update picture");
+        }
+    }
+
+    /**
+     * 获取图片json数据的接口。
+     * 根据传入的id，调用服务层方法更新对应id的json。
+     * @param id
+     * @return 返回json结果
+     */
+
+    @GetMapping("/jsonData/{id}")
+    public String getJsonDataById(@PathVariable("id") Integer id) {
+        return pictureService.selectJsonDataById(id);
+    }
+
+
+    @GetMapping("/schema")
+    public String getschema(@RequestParam(value = "type") String type) throws JsonProcessingException {
+        if (type == null) {
+            return ("Picture ID must be provided");
+        }
+        return pictureService.getSchema();
+    }
+
 }

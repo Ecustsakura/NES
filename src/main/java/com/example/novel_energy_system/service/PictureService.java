@@ -1,6 +1,7 @@
 package com.example.novel_energy_system.service;
 
 import com.example.novel_energy_system.pojo.Picture;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.github.pagehelper.PageInfo;
 
 import java.util.List;
@@ -11,4 +12,7 @@ public interface PictureService {
     int deletePicture(int id);
     PageInfo<Picture> selectPicture(int pageNum, int pageSize);
     PageInfo<Picture> selectPictureByContent(String content,int pageNum, int pageSize);
+    int updatePictureByjson(Picture picture);
+    String selectJsonDataById(Integer id);
+    String getSchema() throws JsonProcessingException;
 }

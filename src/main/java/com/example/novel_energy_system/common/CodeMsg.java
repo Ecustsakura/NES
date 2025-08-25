@@ -19,7 +19,7 @@ public class CodeMsg {
     public static CodeMsg USER_OR_PASS_ERROR = new CodeMsg(500102,"账号或者密码错误，请重试！");
 
 
-    private CodeMsg(int retCode, String message) {
+    public CodeMsg(int retCode, String message) {
         this.retCode = retCode;
         this.message = message;
     }

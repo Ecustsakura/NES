@@ -12,4 +12,6 @@ public interface DrawMapper {
     int updatePicture(Picture picture);
     List<Picture> selectPicture();
     List<Picture> selectPictureByContent(@Param("content") String content);
+    int updatePictureByJson(Picture picture);
+    String selectJsonDataById(Integer id);
 }

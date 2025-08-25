@@ -6,6 +6,7 @@ import com.example.novel_energy_system.pojo.PowerFlow;
 import com.example.novel_energy_system.service.NetWorkService;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,8 +32,8 @@ public class NetWorkController {
      *
      * @return result
      */
-    @UserLoginToken
-    @PutMapping("/pf")
+
+    @GetMapping("/pf")
     public Result pf(){
 
     // TODO添加输入
@@ -52,5 +53,4 @@ public class NetWorkController {
         String result = netWorkService.network_alk_calculate();
         return Result.success(result);
     }
-
 }
